@@ -188,13 +188,9 @@ body{
 /* ------------------test------------ */
 .pictures{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
-  /* max-width: 1920px; */
-  padding-right: 5rem;
-  padding-left: 5rem;  
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   grid-gap: 3rem;
-  /* position: relative; */
-}
+ }
 
 .list{
   overflow: hidden;
@@ -271,11 +267,11 @@ body{
     left: 0px;
     padding: 50px;
     color: var(--coffee1);
-    font-size: 25px;
+    font-size: 20px;
     width: 450px;
     height: 100vh;
     background: rgba(255,255,255,0.40);
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.2rem;
     text-align: justify;
   }
 
@@ -311,7 +307,7 @@ button.bg-warning:focus {
 }
 
 #section05 h5{
-  letter-spacing: 0.12rem;
+  letter-spacing: 0.1rem;
 }
 /* --section06----------------------------------------------- */
 #section06{
@@ -332,7 +328,7 @@ button.bg-warning:focus {
 }
 
 .tai_iframe{
-  right: 2%;
+  right: 0%;
 } 
 
 /* --footer------------------ */
