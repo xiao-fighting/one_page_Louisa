@@ -1,0 +1,384 @@
+/* 自訂樣式*/
+/* CSS 原生變數*/
+:root{
+  /* 主題色 */
+  --coffee1:#000 !important;
+  --coffee2:#3a3a3a !important;
+  --coffee3:#6c6c6c !important;
+  --coffee4:#c7c7c7 !important;
+  --coffee5:#eeeeee !important;
+  --coffee6:#fff !important;
+
+  /* 黑色透明 */
+  --black25:rgba(0,0,0,0.25) !important;
+  --black50:rgba(0,0,0,0.5) !important;
+  --black75:rgba(0,0,0,0.75) !important;
+
+  /* 白色透明 */
+  --white25:rgba(255,255,255,0.25) !important;
+  --white50:rgba(255,255,255,0.5) !important;
+  --white75:rgba(255,255,255,0.75) !important;
+
+  /* 陰影 */
+  /* var() 表示使用變數 */
+  --shadow1: 0 0 5px 100px var(--black25) !important;
+  --shadow2: 0 0 5px var(--black50) !important;
+  --shadow3: 0 0 5px var(--black75) !important;
+
+  /* 內距、外聚級數 */
+  /* s : space */
+  --s0:0 !important;
+  --s1:0.25rem !important;
+  --s2:0.5rem !important;
+  --s3:1rem !important;
+  --s4:1.5rem !important;
+  --s5:3rem !important;
+}
+
+.btn-coffee {
+  color: var(--coffee5);
+  background-color: var(--coffee3);
+}
+
+.btn-coffee:hover {
+  color: var(--coffee5);
+  background-color: var(--coffee2);
+}
+
+.btn-coffee:focus, .btn-coffee.focus {  
+  box-shadow: var(--shadow1);
+}
+
+.btn-coffee.disabled, .btn-coffee:disabled {
+  color: var(--coffee5);
+  background-color: var(--coffee3);
+}
+
+.btn-coffee:not(:disabled):not(.disabled):active, .btn-coffee:not(:disabled):not(.disabled).active,
+.show > .btn-coffee.dropdown-toggle {
+  color: var(--coffee5);
+  background-color:var(--coffee3);
+}
+
+.btn-coffee:not(:disabled):not(.disabled):active:focus, .btn-coffee:not(:disabled):not(.disabled).active:focus,
+.show > .btn-coffee.dropdown-toggle:focus {
+  box-shadow: var(--shadow1);
+}
+
+/* body------------------------------------------------------ */
+body{
+  font-family: '微軟正黑體','Microsoft JhengHei',Arial, Helvetica, sans-serif;
+  overflow-x:hidden;
+}
+
+/* 導覽列的顏色----------------------------------------------------- */
+#navbar{
+  background: var(--coffee6);
+  padding: var(--s1) 0;
+  transition: 0.5s;
+  z-index: 999999999;
+  position: fixed;  
+}
+
+#coffeeNavbar .nav-link i{
+  margin-right: var(--s1);
+}
+
+/* 575px 最小尺寸，登入、註冊會呈現水平 */
+#login_menu{
+  display: flex;
+  flex-direction: row;
+}
+
+/* section01 輪播圖 */
+.img-scale{
+  /* 動畫名稱 20s 延遲1秒  只播一次 動畫速率 */
+  animation: img-scale 20s 1s 1 ease forwards;
+}
+@keyframes img-scale{
+  from {
+    transform:scale(1);
+  }
+  to {
+    transform:scale(1.2)
+  }
+}
+
+.carousel-control-prev,.carousel-control-next{
+  transition: 0.5s;
+}
+.carousel-control-prev:hover{
+  background: linear-gradient(90deg,rgba(0,0,0,0.8),transparent);
+  opacity: 1;
+}
+
+
+.carousel-control-next:hover{
+  background: linear-gradient(90deg,transparent, rgba(0,0,0,0.8));
+  opacity: 1;
+}
+
+/* 長高後圖片也才能長高 */
+.carousel-item{
+  height: 100%;
+}
+
+.carousel-inner img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 裝置斷點控制區 */
+/* 做兩種尺寸 575px以下 跟 992px 以上*/
+/* max-width 以下 */
+@media (max-width:575px){
+  body{
+    min-height: 100%;
+  }
+
+  #main_menu.navbar-nav{    
+    text-align: center;
+  }
+
+  #login_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  #section01{
+    height: 330px;
+  }
+}
+
+/* lg 992px以上 */
+@media (min-width:992px){
+  #section01{
+    height: 100vh;
+  }
+  #section02,#section03,#section04,#section05,#section06{
+    height: 100vh;
+    padding: 2rem 0;
+  }
+}
+
+/* section:nth-of-type(even){ 
+  background: var(--coffee4);
+} */
+
+/* #section06{
+  background: var(--coffee4);
+} */
+
+/* modal */
+#login .modal-content, #register .modal-content{
+  box-shadow: var(--shadow3);
+}
+
+#login input.form-control:focus, #register input.form-control:focus{
+  border-color: var(--coffee3);
+  box-shadow: var(--shadow2);
+}
+
+
+/* ------------------------------------------------------- */
+/* #section02 最新消息 */
+
+
+/* ------------------test------------ */
+.pictures{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+  /* max-width: 1920px; */
+  padding-right: 5rem;
+  padding-left: 5rem;  
+  grid-gap: 3rem;
+  /* position: relative; */
+}
+
+.list{
+  overflow: hidden;
+}
+.list img{
+  position: relative;
+  width: 90%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease-in;  
+  transform: translate(5%,0);
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.list img:hover{
+  filter: brightness(0.4);
+}
+
+.list p{
+  color: transparent;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  text-align: center;
+  pointer-events: none;
+
+}
+
+.list:hover p{
+  color: var(--coffee6);
+  transform : translate(0%,-720%);
+}
+
+/* --section03------------------------------------------ */
+
+#section03{
+  background: var(--coffee1);
+  position: relative;
+}
+@media (max-width:576px){  
+  #section03 .sec03Img{
+    display: none;
+  }
+}
+
+.aboutUs{
+  position: absolute;
+  top:0px;
+  left: 0px;
+  padding: 30px;
+  color: var(--coffee1);
+  width: 325px;
+  background: rgba(255,255,255,0.6);
+  letter-spacing: 0.2rem;
+  text-align: justify;
+}
+
+@media (min-width:992px){
+  .parallax{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-image: url(../images/parallax_04.jpg);
+    transform: scale(0.9);
+    position: relative;
+  }
+  .aboutUs{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    padding: 50px;
+    color: var(--coffee1);
+    font-size: 25px;
+    width: 450px;
+    height: 100vh;
+    background: rgba(255,255,255,0.40);
+    letter-spacing: 0.5rem;
+    text-align: justify;
+  }
+
+  #section03 .sec03Img{
+    display: none;
+  }
+ 
+}
+
+
+
+/* --section05 聯絡我們----------------------------------- */
+button {
+  border-radius: 15%;
+  border-style: solid;
+  border-color: #ffbf00;
+  width: 60px;
+  height: 40px;
+}
+
+.bg-warning {
+  background-color: #ffe391 !important;
+  color: var(--coffee3);
+}
+
+a.bg-warning:hover, a.bg-warning:focus,
+button.bg-warning:hover,
+button.bg-warning:focus {
+  background-color: #d39e00 !important;
+  color: white;
+  border-style: none;
+
+}
+
+#section05 h5{
+  letter-spacing: 0.12rem;
+}
+/* --section06----------------------------------------------- */
+#section06{
+  position: relative;
+}
+
+.taiMap{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  color: var(--coffee1);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  min-width: 420px;  
+}
+.taiName{
+  left: 5%;
+}
+
+.tai_iframe{
+  right: 2%;
+} 
+
+/* --footer------------------ */
+#footer{
+  position: relative;
+}
+
+#footer .container-fluid{
+  color: var(--coffee5);
+  padding: 1rem 0;
+  background: var(--coffee1);
+  text-align: center;
+  position: absolute;
+  bottom: -500px;
+}
+
+@media (min-width:992px){
+  #footer{
+    margin-top: 1rem;
+  }
+  #footer .container-fluid{
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+  }
+}
+
+/* ---------------------------*/
+#goToTop{
+  width: 50px;
+  height: 50px;
+  background: orange;
+  border-radius: 50%;
+  position: fixed;
+  right: 10px;
+  bottom: 0;
+  z-index: 999;
+  box-shadow: inset 0 0 0 3px #F7CB5B, inset 0 0 10px 10px white;
+}
+
+#goToTop a {
+  display: block;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 50px;
+  color: lightgoldenrodyellow;
+  text-decoration: none;
+}
+
