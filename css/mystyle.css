@@ -8,6 +8,7 @@
   --coffee4:#c7c7c7 !important;
   --coffee5:#eeeeee !important;
   --coffee6:#fff !important;
+  --louisa:rgb(243,116,35) !important;
 
   /* 黑色透明 */
   --black25:rgba(0,0,0,0.25) !important;
@@ -79,6 +80,20 @@ body{
   z-index: 999999999;
   position: fixed;  
 }
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+  color: var(--coffee4);
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .nav-link.active {
+  color: var(--louisa);
+}
 
 #coffeeNavbar .nav-link i{
   margin-right: var(--s1);
@@ -149,6 +164,15 @@ body{
   #section01{
     height: 330px;
   }
+
+  #section06{
+    height: 50vh;
+
+  }
+  #section06 .row{
+    justify-content: center;
+    align-items: center;
+  }   
 }
 
 /* lg 992px以上 */
@@ -156,10 +180,34 @@ body{
   #section01{
     height: 100vh;
   }
-  #section02,#section03,#section04,#section05,#section06{
+  #section02,#section04,#section05{
     height: 100vh;
     padding: 2rem 0;
   }
+  #section03{
+    height: 100vh;
+    padding: 1rem 0;
+  }
+
+  #section06{
+    height: 80vh;
+    position: relative;
+  }
+
+  .taiName{
+  position: absolute;
+  top: 0%;
+  left: 15%;
+
+  }
+
+  .tai_iframe{
+    position: absolute;
+    width: 40%;
+    transform: translate(-40%,-5%);
+    top: 5%;
+  }
+  
 }
 
 /* section:nth-of-type(even){ 
@@ -183,9 +231,6 @@ body{
 
 /* ------------------------------------------------------- */
 /* #section02 最新消息 */
-
-
-/* ------------------test------------ */
 .pictures{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
@@ -197,11 +242,10 @@ body{
 }
 .list img{
   position: relative;
-  width: 90%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   transition: all 0.3s ease-in;  
-  transform: translate(5%,0);
   cursor: pointer;
   pointer-events: all;
 }
@@ -212,17 +256,14 @@ body{
 
 .list p{
   color: transparent;
-  width: 100%;
-  height: 100%;
   cursor: pointer;
   text-align: center;
   pointer-events: none;
-
 }
 
 .list:hover p{
   color: var(--coffee6);
-  transform : translate(0%,-720%);
+  transform : translate(0%,-510%);
 }
 
 /* --section03------------------------------------------ */
@@ -231,22 +272,41 @@ body{
   background: var(--coffee1);
   position: relative;
 }
-@media (max-width:576px){  
+
+.sec03Img{
+  width: 100%;
+}
+@media (min-width:576px){  
   #section03 .sec03Img{
     display: none;
   }
 }
 
-.aboutUs{
-  position: absolute;
-  top:0px;
-  left: 0px;
-  padding: 30px;
-  color: var(--coffee1);
-  width: 325px;
-  background: rgba(255,255,255,0.6);
-  letter-spacing: 0.2rem;
-  text-align: justify;
+@media (min-width:0px) and (max-width:575px){
+  .onlyPhone{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    padding: 10px;
+    font-size: 12px;
+    color: var(--coffee1);
+    width: 40%;
+    height: 100%;
+    background: rgba(255,255,255,0.6);
+    letter-spacing: 0.05rem;
+    text-align: justify;
+  }
+  
+  .onlyComputer{
+    display: none;
+  }
+
+}
+
+@media (min-width:576px){
+  .onlyPhone{
+    display: none;
+  }
 }
 
 @media (min-width:992px){
@@ -258,10 +318,10 @@ body{
     background-position: center center;
     background-size: cover;
     background-image: url(../images/parallax_04.jpg);
-    transform: scale(0.9);
+    /* transform: scale(0.9); */
     position: relative;
   }
-  .aboutUs{
+  .onlyComputer{
     position: absolute;
     top:0px;
     left: 0px;
@@ -274,14 +334,7 @@ body{
     letter-spacing: 0.2rem;
     text-align: justify;
   }
-
-  #section03 .sec03Img{
-    display: none;
-  }
- 
 }
-
-
 
 /* --section05 聯絡我們----------------------------------- */
 button {
@@ -321,10 +374,6 @@ button.bg-warning:focus {
   color: var(--coffee1);
   padding-top: 2rem;
   padding-bottom: 2rem;
-  min-width: 420px;  
-}
-.taiName{
-  left: 5%;
 }
 
 .tai_iframe{
@@ -342,7 +391,7 @@ button.bg-warning:focus {
   background: var(--coffee1);
   text-align: center;
   position: absolute;
-  bottom: -500px;
+  bottom: -430px;
 }
 
 @media (min-width:992px){
